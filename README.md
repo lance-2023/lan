@@ -1,2 +1,2 @@
 # lan
-private rep
+private rep but no money so it's pubulic

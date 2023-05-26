@@ -4,7 +4,7 @@ from utils.base_model import  BaseModel
 # Create your models here.
 class Customer(BaseModel):
     #数据中字段，默认会给一个id主键
-    _authentication = models.JSONField(default={})
+    _authentication = models.JSONField(default=dict)
     company = models.CharField(default='', max_length=200)
     first_name = models.CharField(default='', null=False, blank=False, max_length=200)
     last_name = models.CharField(default='', null=False, blank=False, max_length=200)

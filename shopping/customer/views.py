@@ -1,5 +1,3 @@
-import json
-
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from customer.serializers import CustomerSerilizer

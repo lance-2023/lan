@@ -18,13 +18,18 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 from customer.views import CustomerViewSet
+from product.views import ProductViewSet
 from django.urls import include
 
 customer_router = DefaultRouter()
 customer_router.register('customer', CustomerViewSet)
 
+product_router = DefaultRouter()
+product_router.register('product', ProductViewSet)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
 #基于视图集，包：include以及实现的router
-    path('api/v1/', include(customer_router.urls))
+    path('api/v1/', include(customer_router.urls)),
+    path('api/v1/', include(product_router.urls))
 ]

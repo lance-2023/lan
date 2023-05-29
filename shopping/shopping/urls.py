@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
 from rest_framework.routers import DefaultRouter
+
 from customer.views import CustomerViewSet
 from product.views import ProductViewSet
-from django.urls import include
+from order.views import OrderViewSet
+
 
 customer_router = DefaultRouter()
 customer_router.register('customer', CustomerViewSet)
@@ -27,9 +30,13 @@ customer_router.register('customer', CustomerViewSet)
 product_router = DefaultRouter()
 product_router.register('product', ProductViewSet)
 
+order_router = DefaultRouter()
+order_router.register('order', OrderViewSet)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-#基于视图集，包：include以及实现的router
+    #基于视图集，包：include以及实现的router
     path('api/v1/', include(customer_router.urls)),
-    path('api/v1/', include(product_router.urls))
+    path('api/v1/', include(product_router.urls)),
+    path('api/v1/', include(order_router.urls))
 ]

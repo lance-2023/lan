@@ -14,7 +14,8 @@ class Product(BaseModel):
     depth = models.IntegerField(default=0, null=True, blank=True)
     height = models.IntegerField(default=0, null=True, blank=True)
     price = models.IntegerField(default=0, null=False, blank=False)
-    categories = models.CharField(validators=[validate_comma_separated_integer_list], max_length=200, null=True, blank=True)
+
+    categories = models.JSONField(default=dict, null=True, blank=True)
     brand_id = models.IntegerField(default=0, null=True, blank=True)
     tax_class_id = models.IntegerField(default=0, null=True, blank=True)
     open_graph_type = models.CharField(default='', max_length=200, null=True, blank=True)
@@ -28,7 +29,7 @@ class Product(BaseModel):
     is_visibleb = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
 
-    related_products = models.CharField(validators=[validate_comma_separated_integer_list], max_length=200, null=True, blank=True)
+    related_products = models.JSONField(default=dict, null=True, blank=True)
     search_keywords = models.CharField(default='', max_length=200, null=True, blank=True)
 
     images = models.JSONField(default=dict, null=True, blank=True)

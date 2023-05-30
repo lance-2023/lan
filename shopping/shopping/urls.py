@@ -35,6 +35,10 @@ order_router.register('order', OrderViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    #基于视图，path第二个参数应该是视图函数的内存地址，as_view是一个类方法，会把调用的类当成第一个参数传入
+    # path("something/", views.Something.as_view),
+
     #基于视图集，包：include以及实现的router
     path('api/v1/', include(customer_router.urls)),
     path('api/v1/', include(product_router.urls)),

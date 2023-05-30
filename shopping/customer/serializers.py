@@ -51,7 +51,7 @@ class CustomerSerilizer(serializers.ModelSerializer):
         #设置你需要的字段
         # fields = []
         fields = '__all__'
-        #除了某字段不要，其他都要
+        #除了某字段不要，其他都要，可以在这里过滤掉密码字段保证安全性
         # ecclude = []
 
 # class CustomerCreatSerilizer(serializers.ModelSerializer):

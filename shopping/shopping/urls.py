@@ -22,6 +22,7 @@ from rest_framework.routers import DefaultRouter
 from customer.views import CustomerViewSet
 from product.views import ProductViewSet
 from order.views import OrderViewSet
+from cart.views import CartViewSet
 
 
 customer_router = DefaultRouter()
@@ -33,6 +34,9 @@ product_router.register('product', ProductViewSet)
 order_router = DefaultRouter()
 order_router.register('order', OrderViewSet)
 
+cart_router = DefaultRouter()
+cart_router.register('cart', CartViewSet)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
 
@@ -42,5 +46,6 @@ urlpatterns = [
     #基于视图集，包：include以及实现的router
     path('api/v1/', include(customer_router.urls)),
     path('api/v1/', include(product_router.urls)),
-    path('api/v1/', include(order_router.urls))
+    path('api/v1/', include(order_router.urls)),
+    path('api/v1/', include(cart_router.urls))
 ]

@@ -1,4 +1,6 @@
 from django.db import models
+
+from customer.models import Customer
 from utils.base_model import  BaseModel
 
 # Create your models here.
@@ -12,7 +14,7 @@ class Order(BaseModel):
     order_is_digital = models.BooleanField(default=False, null=True, blank=True)
 
     channel_id = models.IntegerField(default=0, null=True, blank=True)
-    customer_id = models.IntegerField(default=0, null=True, blank=True)
+    # customer_id = models.IntegerField(default=0, null=True, blank=True)
     customer_message = models.CharField(default='', max_length=200, null=True, blank=True)
 
     geoip_country = models.CharField(default='', max_length=200, null=True, blank=True)
@@ -33,6 +35,7 @@ class Order(BaseModel):
     payment_method = models.CharField(default='', max_length=200, null=True, blank=True)
     payment_provider_id = models.IntegerField(default=0, null=True, blank=True)
 
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, default=1)
     #该模型的元数据，用于描述该模型
     class Meta:
         db_table = 'order'

@@ -5,36 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc7f2349-ae9b-40c3-8d3c-848859e30171" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/djangoProject/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/djangoProject/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/djangoProject/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/djangoProject/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/djangoProject/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/ser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shopping/cart/migrations/0002_remove_cart_customer_id_cart_customer_cart_products_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shopping/order/migrations/0004_remove_order_customer_id_order_customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/cart/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/cart/migrations/0002_remove_cart_customer_id_cart_customer_cart_products_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../shopping/cart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/cart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/migrations/0002_alter_customer__authentication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/migrations/0003_alter_customer__authentication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/migrations/0004_alter_customer__authentication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/migrations/0005_alter_customer__authentication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/migrations/0006_alter_customer__authentication.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/customer/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/customer/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/customer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/customer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/order/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/order/migrations/0002_alter_order_shipping_addresses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/order/migrations/0003_remove_order_consignments_remove_order_is_deleted_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/order/migrations/0004_remove_order_customer_id_order_customer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../shopping/order/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/order/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0002_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0003_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0004_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0005_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0006_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0007_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0008_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0009_alter_product_bulk_pricing_rules_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0010_alter_product_brand_id_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/migrations/0011_alter_product_categories_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/product/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/shopping/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/shopping/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shopping/utils/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../shopping/utils/base_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +61,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="djangoProject" type="Python.DjangoServer" factoryName="Django server">
       <module name="djangoProject" />
@@ -104,6 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685606042521</updated>
       <workItem from="1685606047570" duration="5814000" />
+      <workItem from="1685666269092" duration="2759000" />
     </task>
     <servers />
   </component>

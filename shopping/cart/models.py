@@ -4,30 +4,25 @@ from django.db import models
 
 from customer.models import Customer
 from utils.base_model import BaseModel
+from order.models import Discount
 
 from product.models import Product
+
+
 # Create your models here.
+
 class Cart(BaseModel):
     id = models.UUIDField(primary_key=True, max_length=200, default=uuid.uuid4(), editable=False)
-    line_item = models.JSONField(default=dict, null=False, blank=False)
-    custom_items = models.JSONField(default=dict)
-    gift_certificates = models.JSONField(default=dict)
-    # customer_id = models.IntegerField(default=0)
-    channel_id = models.IntegerField(default=0)
-    currency = models.JSONField(default=dict)
-    locale = models.CharField(default='', max_length=200)
-    email = models.CharField(default='', max_length=200)
-    tax_included = models.BooleanField(default=False)
-    discount_amount = models.IntegerField(default=0)
-    cart_amount = models.IntegerField(default=0)
-    discounts = models.JSONField(default=dict)
-    coupons = models.JSONField(default=dict)
+    channel_id = models.IntegerField(default=0, null=True, blank=True)
+    currency = models.CharField(default='', null=True, blank=True, max_length=200)
+    locale = models.CharField(default='', null=True, blank=True, max_length=200)
 
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, default=1)
-    products = models.ManyToManyField(Product)
+    # 关系
+    line_item = models.ManyToManyField(to=Product, null=True)
+    discounts = models.ManyToManyField(to=Discount, null=True)
+    customer = models.ForeignKey(to=Customer, on_delete=models.DO_NOTHING, null=True)
 
-
-    #该模型的元数据，用于描述该模型
+    # 该模型的元数据，用于描述该模型
     class Meta:
         db_table = 'cart'
         verbose_name = 'cart'

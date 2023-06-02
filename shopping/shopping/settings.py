@@ -83,7 +83,7 @@ WSGI_APPLICATION = "shopping.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shopping',
+        'NAME': 'shopping_v1',
         'USER': 'postgres',
         'PASSWORD': 123456,
         'HOST': 'localhost',
@@ -132,3 +132,9 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES':(
+#         'utils.auth.JwtAuth'
+#     )
+# }

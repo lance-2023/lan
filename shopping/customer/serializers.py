@@ -1,56 +1,34 @@
-'''
+"""
 author:lance.lan
 date:2023/5/24
 project:djangoProject
-'''
+"""
 from rest_framework import serializers
-from customer.models import Customer
+from customer.models import Customer, Authentication
 
 
 # 模型序列化器
-class CustomerSerializer(serializers.ModelSerializer):
-    # _authentication = serializers.JSONField(
-    #     read_only=True
-    # )
-    first_name = serializers.CharField(
-        # 是否必填
-        required=True,
-        # 是否可以为null
-        allow_null=False,
-        allow_blank=False,
-        max_length=200,
-    )
-    last_name = serializers.CharField(
-        # 是否必填
-        required=True,
-        # 是否可以为null
-        allow_null=False,
-        allow_blank=False,
-        max_length=200,
-    )
-    phone = serializers.CharField(
-        # 是否必填
-        required=True,
-        # 是否可以为null
-        allow_null=False,
-        allow_blank=False,
-        max_length=200,
-    )
-    email = serializers.EmailField(
-        # 是否必填
-        required=True,
-        # 是否可以为null
-        allow_null=False,
-        allow_blank=False,
-        max_length=200,
-        # 自定义错误提示
-        error_messages={
-            # 数据无效
-            'invalid': 'error email',
-            # 为空时错误提示
-            'null': 'can not allow null'
-        }
-    )
+class AuthenticationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Authentication
+        fields = ['password', 'password_confirmation', 'force_reset']
+
+
+class CustomerCreateSerializer(serializers.ModelSerializer):
+    # 序列化外键法一：
+    authentication = AuthenticationSerializer()
+    # 法二：
+    # authentication = serializers.SerializerMethodField()
+    # def get_authentication(self, obj):
+    #     authentication = obj.authentication
+    #     authentication_list = []
+    #     if authentication.password:
+    #         authentication_list.append({'password': authentication.password})
+    #     if authentication.password_confirmation:
+    #         authentication_list.append({'password_confirmation': authentication.password_confirmation})
+    #     if authentication.force_reset:
+    #         authentication_list.append({'force_reset': authentication.force_reset})
+    #     return authentication_list
 
     class Meta:
         model = Customer
@@ -58,4 +36,15 @@ class CustomerSerializer(serializers.ModelSerializer):
         # fields = []
         fields = '__all__'
         # 除了某字段不要，其他都要
-        # ecclude = []
+        # exclude = []
+
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        # 设置你需要的字段
+        # fields = []
+        # fields = '__all__'
+        # 除了某字段不要，其他都要
+        exclude = ['authentication']

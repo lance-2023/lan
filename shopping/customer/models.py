@@ -32,6 +32,9 @@ class Customer(BaseModel):
     # 关系
     authentication = models.OneToOneField(to=Authentication, on_delete=models.DO_NOTHING, null=True)
 
+    # def __str__(self):
+    #     return self.id
+
     # 该模型的元数据，用于描述该模型
     class Meta:
         db_table = 'customer'

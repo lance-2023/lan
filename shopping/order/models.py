@@ -17,8 +17,7 @@ class Billing_address(BaseModel):
     phone = models.CharField(default='', null=True, blank=True, max_length=200)
     email = models.CharField(default='', null=True, blank=True, max_length=200)
 
-    def __str__(self):
-        return self.first_name + self.last_name + self.email
+
 
     class Meta:
         db_table = 'billing_address'
@@ -36,8 +35,6 @@ class Shipping_address(BaseModel):
     email = models.CharField(default='', null=True, blank=True, max_length=200)
     shipping_method = models.CharField(default='', null=True, blank=True, max_length=200)
 
-    def __str__(self):
-        return self.first_name + self.last_name + self.email
 
     class Meta:
         db_table = 'shipping_address'
@@ -54,7 +51,7 @@ class Line_items(BaseModel):
         db_table = 'line_items'
 
 
-class Discount(BaseModel):
+class Discounts(BaseModel):
     name = models.CharField(default='', null=True, blank=True, max_length=200)
     discount = models.IntegerField(default=1, null=True, blank=True)
 
@@ -62,7 +59,7 @@ class Discount(BaseModel):
         return self.name
 
     class Meta:
-        db_table = 'discount'
+        db_table = 'discounts'
 
 
 class Order(BaseModel):
@@ -85,10 +82,10 @@ class Order(BaseModel):
     payment_method = models.CharField(default='', null=True, blank=True, max_length=200)
     payment_provider_id = models.IntegerField(default=0, null=True, blank=True)
 
-    discounts = models.ManyToManyField(to=Discount, null=True)
+    # discount = models.ManyToManyField(to=Discounts, null=True)
     customer = models.ForeignKey(to=Customer, on_delete=models.DO_NOTHING, null=True)
     billing_address = models.ForeignKey(to=Billing_address, on_delete=models.DO_NOTHING, null=True)
-    line_items = models.OneToOneField(to=Line_items, on_delete=models.DO_NOTHING, null=True)
+    products = models.ManyToManyField(to=Line_items, null=True)
     shipping_address = models.ForeignKey(to=Shipping_address, on_delete=models.DO_NOTHING, null=True)
 
     # 该模型的元数据，用于描述该模型

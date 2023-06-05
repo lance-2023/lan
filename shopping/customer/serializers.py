@@ -15,8 +15,14 @@ class AuthenticationSerializer(serializers.ModelSerializer):
 
 
 class CustomerCreateSerializer(serializers.ModelSerializer):
+
+    email = serializers.EmailField()
+
     # 序列化外键法一：
     authentication = AuthenticationSerializer()
+
+    # authentication = serializers.PrimaryKeyRelatedField(label='authentication', queryset=Authentication.objects.all(), many=True, allow_null=True)
+
     # 法二：
     # authentication = serializers.SerializerMethodField()
     # def get_authentication(self, obj):
@@ -29,6 +35,12 @@ class CustomerCreateSerializer(serializers.ModelSerializer):
     #     if authentication.force_reset:
     #         authentication_list.append({'force_reset': authentication.force_reset})
     #     return authentication_list
+    def create(self, validated_data):
+        # validated_data校验通过的数据
+        authentication_data = validated_data.pop('authentication')
+        authentication = Authentication.objects.create(**authentication_data)
+        customer = Customer.objects.create(authentication=authentication, **validated_data)
+        return customer
 
     class Meta:
         model = Customer
@@ -37,7 +49,6 @@ class CustomerCreateSerializer(serializers.ModelSerializer):
         fields = '__all__'
         # 除了某字段不要，其他都要
         # exclude = []
-
 
 
 class CustomerSerializer(serializers.ModelSerializer):

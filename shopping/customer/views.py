@@ -22,35 +22,37 @@ class CustomerViewSet(ModelViewSet):
     # super().create(self, request, *args, **kwargs
     def create(self, request, *args, **kwargs):
         data = request.data
-        # data是dict类型，需要转换格式
-        print(data)
-
-        url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v2/customers'
-        headers = {'x-auth-token': 'ol999cchp7xq536507sq3pbjia3fi43', 'Accept': 'application/json'}
-        requests.post(url=url, json=data, headers=headers)
-
-        # 这里只用json参数，转换data类型，在bc端接受的是json数据，而不是data参数
-        # BC_response = requests.post(url=url, json=data, headers=headers)
-        # BC_data = BC_response.json()
-        # print(resp.text)
-        # print(type(resp.text))
-        # print("\n")
-        # print(resp.json())
-        # print(type(resp.json()))
-        # print("\n")
-        # print(BC_response.status_code)
-        # 在bc端创建成功后才会在，我这边创建
-        # if BC_response.status_code == 201:
-        # else:
-        # return APIResponse(code=BC_response.status_code, message=BC_data[0]["message"], data=data)
-
-        serializer = CustomerCreateSerializer(data=request.data)
+        serializer = CustomerCreateSerializer(data=data)
         try:
             serializer.is_valid(raise_exception=True)
             serializer.save()
         except ValidationError:
             return APIResponse(code=status.HTTP_400_BAD_REQUEST, message="数据校验出错", data=data)
         return APIResponse(code=status.HTTP_201_CREATED, message="创建成功", data=data)
+
+    #     data = request.data
+    #     # data是dict类型，需要转换格式
+    #     print(data)
+    #
+    #     url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v2/customers'
+    #     headers = {'x-auth-token': 'ol999cchp7xq536507sq3pbjia3fi43', 'Accept': 'application/json'}
+    #     requests.post(url=url, json=data, headers=headers)
+    #
+    #     # 这里只用json参数，转换data类型，在bc端接受的是json数据，而不是data参数
+    #     # BC_response = requests.post(url=url, json=data, headers=headers)
+    #     # BC_data = BC_response.json()
+    #     # print(resp.text)
+    #     # print(type(resp.text))
+    #     # print("\n")
+    #     # print(resp.json())
+    #     # print(type(resp.json()))
+    #     # print("\n")
+    #     # print(BC_response.status_code)
+    #     # 在bc端创建成功后才会在，我这边创建
+    #     # if BC_response.status_code == 201:
+    #     # else:
+    #     # return APIResponse(code=BC_response.status_code, message=BC_data[0]["message"], data=data)
+    #     #
 
 
     @action(methods=['GET'], detail=False)

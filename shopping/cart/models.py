@@ -4,9 +4,7 @@ from django.db import models
 
 from customer.models import Customer
 from utils.base_model import BaseModel
-from order.models import Discount
-
-from product.models import Product
+from order.models import Discounts, Line_items
 
 
 # Create your models here.
@@ -18,8 +16,8 @@ class Cart(BaseModel):
     locale = models.CharField(default='', null=True, blank=True, max_length=200)
 
     # 关系
-    line_item = models.ManyToManyField(to=Product, null=True)
-    discounts = models.ManyToManyField(to=Discount, null=True)
+    line_items = models.ManyToManyField(to=Line_items, null=True)
+    discounts = models.ManyToManyField(to=Discounts, null=True)
     customer = models.ForeignKey(to=Customer, on_delete=models.DO_NOTHING, null=True)
 
     # 该模型的元数据，用于描述该模型

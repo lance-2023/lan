@@ -1,8 +1,8 @@
-'''
+"""
 author:lance.lan
 date:2023/5/24
 project:djangoProject
-'''
+"""
 from rest_framework import serializers
 from cart.models import Cart
 from customer.models import Customer
@@ -16,14 +16,14 @@ from product.serializers import ProductSerializer
 # 模型序列化器
 class CartSerializer(serializers.ModelSerializer):
     line_items = Line_itemsSerializer(many=True)
-    # discount = DiscountsSerializer(many=True)
+    # discounts = DiscountsSerializer(many=True)
 
     # 只在序列化使用
     customer = CustomerSerializer(read_only=True)
 
     # 1、由于在Customer的模型中重写了__str__所以返回值就是customer的id
     # customer_id = serializers.IntegerField(source='customer.id')
-    customer_id = serializers.IntegerField(write_only=True)
+    customer_id = serializers.IntegerField()
 
     # 2、line_items是个多对多，返回值肯定要用serializers.SerializerMethodField()
     # line_items = serializers.SerializerMethodField()
@@ -66,7 +66,7 @@ class CartSerializer(serializers.ModelSerializer):
     #         # 改写Line_items的创建方法添加product外键信息
     #         print(*line_item)
     #         line_item_obj = Line_items.objects.create(**line_item)
-    #         # line_item_obj = Line_items.objects.create(product_id=line_item["product"].get('id'), quantity=line_item["quantity"])
+    #         line_item_obj = Line_items.objects.create(product_id=line_item["product"].get('id'), quantity=line_item["quantity"])
     #         cart.line_items.add(line_item_obj)
     #     # discounts = Discounts.objects.create(**discounts_data)
     #     # for discount in discounts_data:
@@ -78,18 +78,18 @@ class CartSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         # 建立line_items和discounts的多对多，以及customer的外键（创建时需要传入Customer对象）
-        # 建立line_items和discounts的多对多，以及customer的外键（创建时需要传入Customer对象）
         # 前端传回的line_items数据，先建立line_items对象，再建立cart对象
+        print(validated_data)
 
         # discounts_data = validated_data.pop('discounts')
-        customer_id = validated_data.pop('customer_id')
-        print(customer_id)
+        customer_data_id = validated_data.pop('customer_id')
+        print(customer_data_id)
         line_items_data = validated_data.pop('line_items')
         print(line_items_data)
 
-        customer = Customer.objects.filter(id=customer_id).first()
+        # customer = Customer.objects.filter(id=customer_id).first()
 
-        cart = Cart.objects.create(**validated_data, customer=customer)
+        cart = Cart.objects.create(**validated_data, customer_id=customer_data_id)
         print(type(line_items_data))
 
         # line_item = line_items_data[0]

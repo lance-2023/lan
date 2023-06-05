@@ -9,7 +9,7 @@ class Tax(BaseModel):
     tax = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
-        return self.tax_name
+        return self.id
 
     class Meta:
         db_table = 'tax'
@@ -19,7 +19,7 @@ class Category(BaseModel):
     category = models.CharField(default='', null=True, blank=True, max_length=200)
 
     def __str__(self):
-        return self.category
+        return self.id
 
     class Meta:
         db_table = 'category'
@@ -29,7 +29,7 @@ class Brand(BaseModel):
     brand = models.CharField(default='', null=True, blank=True, max_length=200)
 
     def __str__(self):
-        return self.brand
+        return self.id
 
     class Meta:
         db_table = 'brand'

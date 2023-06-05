@@ -20,7 +20,7 @@ class DiscountsSerializer(serializers.ModelSerializer):
 
 
 class Line_itemsSerializer(serializers.ModelSerializer):
-    #前端传过来的product_id信息会被解构成('product', {'id': 1})，其实就是product.id
+    # 前端传过来的product_id信息会被解构成('product', {'id': 1})，其实就是product.id
     product_id = serializers.IntegerField(source='product.id')
 
     class Meta:
@@ -52,24 +52,8 @@ class OrderSerializer(serializers.ModelSerializer):
     # 只在反序列化使用
     customer_id = serializers.IntegerField(write_only=True)
 
-    status_id = serializers.IntegerField()
-    # order_is_digital = serializers.IntegerField(read_only=True)
-    #
-    # channel_id = serializers.IntegerField(read_only=True)
-    # customer_message = serializers.IntegerField(read_only=True)
-    #
-    # geoip_country = serializers.IntegerField(read_only=True)
-    # customer_locales = serializers.IntegerField(read_only=True)
-    # ip_address = serializers.IntegerField(read_only=True)
-    #
-    # base_handling_cost = serializers.IntegerField(read_only=True)
-    # base_shipping_cost = serializers.IntegerField(read_only=True)
-    # base_wrapping_cost = serializers.IntegerField(read_only=True)
-    # default_currency_code = serializers.IntegerField(read_only=True)
-    # payment_method = serializers.IntegerField(read_only=True)
-    # payment_provider_id = serializers.IntegerField(read_only=True)
-
     def create(self, validated_data):
+        print(validated_data)
         billing_address_data = validated_data.pop('billing_address')
         shipping_address_data = validated_data.pop('shipping_address')
         customer_id = validated_data.pop('customer_id')
@@ -88,7 +72,8 @@ class OrderSerializer(serializers.ModelSerializer):
         shipping_address = Shipping_address.objects.create(**shipping_address_data)
         print(shipping_address)
 
-        order = Order.objects.create(**validated_data, customer=customer, shipping_address=shipping_address, billing_address = billing_address)
+        order = Order.objects.create(**validated_data, customer=customer, shipping_address=shipping_address,
+                                     billing_address=billing_address)
 
         for product_data in products_data:
             product_id = product_data.pop('product').get('id')
@@ -103,5 +88,5 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         # 设置你需要的字段
         # fields = []
-        fields = '__all__'        # 除了某字段不要，其他都要
+        fields = '__all__'  # 除了某字段不要，其他都要
         # exclude = []

@@ -82,7 +82,7 @@ class Order(BaseModel):
     payment_method = models.CharField(default='', null=True, blank=True, max_length=200)
     payment_provider_id = models.IntegerField(default=0, null=True, blank=True)
 
-    discount = models.ManyToManyField(to=Discounts, null=True)
+    # discount = models.ManyToManyField(to=Discounts, null=True)
     customer = models.ForeignKey(to=Customer, on_delete=models.DO_NOTHING, null=True)
     billing_address = models.ForeignKey(to=Billing_address, on_delete=models.DO_NOTHING, null=True)
     products = models.ManyToManyField(to=Line_items, null=True)

@@ -5,12 +5,10 @@ project:djangoProject
 """
 from rest_framework import serializers
 from cart.models import Cart
-from customer.models import Customer
 from customer.serializers import CustomerSerializer
 from order.models import Line_items, Discounts
 from order.serializers import DiscountsSerializer, Line_itemsSerializer
 from product.models import Product
-from product.serializers import ProductSerializer
 
 
 # 模型序列化器
@@ -118,4 +116,4 @@ class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
         # 设置你需要的字段
-        fields = '__all__'
+        exclude = ['created_at', 'update_at']

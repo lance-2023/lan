@@ -16,7 +16,7 @@ class DiscountsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Discounts
 
-        fields = '__all__'
+        exclude = ['created_at', 'update_at']
 
 
 class Line_itemsSerializer(serializers.ModelSerializer):
@@ -33,14 +33,14 @@ class Shipping_addressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shipping_address
 
-        fields = '__all__'
+        exclude = ['created_at', 'update_at']
 
 
 class Billing_addressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Billing_address
 
-        fields = '__all__'
+        exclude = ['created_at', 'update_at']
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -88,5 +88,5 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         # 设置你需要的字段
         # fields = []
-        fields = '__all__'  # 除了某字段不要，其他都要
         # exclude = []
+        exclude = ['created_at', 'update_at']

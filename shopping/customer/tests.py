@@ -3,7 +3,7 @@ from django.test import TestCase
 # Create your tests here.
 import requests
 url = 'https://api.bigcommerce.com/stores/rmz2xgu42d/v2/customers'
-headers = {'x-auth-token': 'ol999cchp7xq536507sq3pbjia3fi43', 'Accept': 'application/json'}
+headers = {'x-auth.py-token': 'ol999cchp7xq536507sq3pbjia3fi43', 'Accept': 'application/json'}
 requests.post(url=url, data={
             "first_name": "yu",
             "last_name": "shu",

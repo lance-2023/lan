@@ -46,9 +46,9 @@ class CustomerCreateSerializer(serializers.ModelSerializer):
         model = Customer
         # 设置你需要的字段
         # fields = []
-        fields = '__all__'
         # 除了某字段不要，其他都要
         # exclude = []
+        exclude = ['created_at', 'update_at']
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -58,4 +58,4 @@ class CustomerSerializer(serializers.ModelSerializer):
         # fields = []
         # fields = '__all__'
         # 除了某字段不要，其他都要
-        exclude = ['authentication']
+        exclude = ['authentication', 'created_at', 'update_at']

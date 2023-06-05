@@ -5,7 +5,6 @@ project:djangoProject
 '''
 from rest_framework import serializers
 
-from customer.models import Customer
 from product.models import Product, Tax, Category, Brand
 
 
@@ -13,21 +12,19 @@ class TaxSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tax
 
-        fields = '__all__'
-
+        exclude = ['created_at', 'update_at']
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
 
-        fields = '__all__'
-
+        exclude = ['created_at', 'update_at']
 
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
 
-        fields = '__all__'
+        exclude = ['created_at', 'update_at']
 
 
 # 模型序列化器
@@ -53,6 +50,6 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         # 设置你需要的字段
         # fields = []
-        fields = '__all__'
+        exclude = ['created_at', 'update_at']
         # 除了某字段不要，其他都要
         # exclude = []
